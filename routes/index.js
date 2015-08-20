@@ -36,7 +36,7 @@ exports.index = function(req, res) {
 		//build and render template
 		var templateData = {
 			astros : allAstros,
-			pageTitle : "NASA Astronauts (" + allAstros.length + ")"
+			pageTitle : "Ghosts Reported (" + allAstros.length + ")"
 		}
 
 		res.render('index.html', templateData);
@@ -81,14 +81,14 @@ exports.detail = function(req, res) {
 	astroQuery.exec(function(err, currentAstronaut){
 
 		if (err) {
-			return res.status(500).send("There was an error on the astronaut query");
+			return res.status(500).send("There was an error on the ghost query");
 		}
 
 		if (currentAstronaut == null) {
 			return res.status(404).render('404.html');
 		}
 
-		console.log("Found astro");
+		console.log("Found ghost");
 		console.log(currentAstronaut.name);
 
 		// formattedBirthdate function for currentAstronaut
@@ -101,7 +101,7 @@ exports.detail = function(req, res) {
 		//query for all astronauts, return only name and slug
 		astronautModel.find({}, 'name slug', function(err, allAstros){
 
-			console.log("retrieved all astronauts : " + allAstros.length);
+			console.log("retrieved all ghosts : " + allAstros.length);
 
 			//prepare template data for view
 			var templateData = {
@@ -132,7 +132,7 @@ exports.data_detail = function(req, res) {
 	astroQuery.exec(function(err, currentAstronaut){
 
 		if (err) {
-			return res.status(500).send("There was an error on the astronaut query");
+			return res.status(500).send("There was an error on the ghost query");
 		}
 
 		if (currentAstronaut == null) {
@@ -166,7 +166,7 @@ exports.data_detail = function(req, res) {
 exports.astroForm = function(req, res){
 
 	var templateData = {
-		page_title : 'Enlist a new astronaut'
+		page_title : 'Report a new ghost'
 	};
 
 	res.render('create_form.html', templateData);
@@ -207,11 +207,11 @@ exports.createAstro = function(req, res) {
 	// save the newAstro to the database
 	newAstro.save(function(err){
 		if (err) {
-			console.error("Error on saving new astronaut");
+			console.error("Error on saving new ghost");
 			console.error(err); // log out to Terminal all errors
 
 			var templateData = {
-				page_title : 'Enlist a new astronaut',
+				page_title : 'Report a new ghost',
 				errors : err.errors, 
 				astro : req.body
 			};
@@ -220,7 +220,7 @@ exports.createAstro = function(req, res) {
 			// return res.send("There was an error when creating a new astronaut");
 
 		} else {
-			console.log("Created a new astronaut!");
+			console.log("Created a new ghost!");
 			console.log(newAstro);
 			
 			// redirect to the astronaut's page

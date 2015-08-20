@@ -2,7 +2,7 @@
 	
 	<!-- first column w/ image-->
 	<div class="span4">
-		<img src="{{astro.photo}}" alt="photo of astronaut {{astro.name}}" class="img-polaroid" width="320px"><br>
+		<img src="{{astro.photo}}" alt="photo of ghost {{astro.name}}" class="img-polaroid" width="320px"><br>
 		
 		<p>
 			source: 
@@ -25,13 +25,13 @@
 		<hr>
 
 		<div>
-			Born:
+			Sighting Date:
 			{{#formatDate}}{{astro.birthdate}}{{/formatDate}}
 			<br>
 
-			Skills: {{astro.skills}}<br>
+			Behaviors: {{astro.skills}}<br>
 			
-			Missions:
+			Places Last Seen:
 			<ul>
 				{{#astro.missions}}
 				<li>{{.}}</li>
@@ -44,13 +44,13 @@
 
 		{{#astro.walkedOnMoon}}
 		<div>
-			<h3>WALKED ON THE MOON!</h3>
-			<img src="http://gifs.gifbin.com/062009/1246007745_michael_moonwalking.gif" alt="moonwalking animated gif with michael jackson">
+			<h3>You've been slimed!</h3>
+			<img src="http://stream1.gifsoup.com/view2/1218793/venkman-slimed-o.gif" alt="venkman slimed">
 		</div>
 		{{/astro.walkedOnMoon}}
 
 		{{^astro.walkedOnMoon}}
-		NEVER GOT TO THE MOON :(
+		NEVER BEEN SLIMED 
 		{{/astro.walkedOnMoon}}
 
 		<br><br>
@@ -101,7 +101,7 @@
 
 	<!-- third column w/ listings -->
 	<div class="span2">
-		<h3>Astronauts</h3>
+		<h3>All Ghosts</h3>
 		<hr>
 		{{#astros}}
 		<li>
@@ -110,7 +110,7 @@
 		{{/astros}}
 
 		<br>
-		<a href="/create">Add new astronaut</a>
+		<a class="btn" href="/create">Add new ghost</a>
 	</div>
 
 </div>
