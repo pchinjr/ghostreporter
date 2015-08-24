@@ -144,7 +144,7 @@ exports.data_detail = function(req, res) {
 		currentAstronaut.formattedBirthdate = function() {
 			// formatting a JS date with moment
 			// http://momentjs.com/docs/#/displaying/format/
-            return moment(this.birthdate).format("dddd, MMMM Do YYYY");
+            return moment(this.birthdate).format("dddd, MMMM Dd YYYY");
         };
 		
 		//prepare JSON data for response
@@ -198,6 +198,7 @@ exports.createAstro = function(req, res) {
 	}
 
 	newAstro.skills = req.body.skills.split(",");
+	newAstro.missions = req.body.missions.split(",");
 
 	// walked on moon checkbox
 	if (req.body.walkedonmoon) {
@@ -283,6 +284,7 @@ exports.updateAstro = function(req, res) {
 		},
 		birthdate : moment(req.body.birthdate).toDate(),
 		skills : req.body.skills.split(","),
+		missions : req.body.missions.split(","),
 
 		walkedOnMoon : (req.body.walkedonmoon) ? true : false
 		

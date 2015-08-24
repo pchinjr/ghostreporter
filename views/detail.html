@@ -26,7 +26,9 @@
 
 		<div>
 			Sighting Date:
-			{{#formatDate}}{{astro.birthdate}}{{/formatDate}}
+			
+			{{astro.birthdate}}
+			
 			<br>
 
 			Behaviors: {{astro.skills}}
@@ -38,7 +40,7 @@
 				<li>{{.}}</li>
 				{{/astro.missions}}
 				{{^astro.missions}}
-				No missions yet.
+				No Locations Reported Yet.
 				{{/astro.missions}}
 			</ul>
 		</div>

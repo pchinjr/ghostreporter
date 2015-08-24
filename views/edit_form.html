@@ -14,8 +14,12 @@
 			</label>
 
 			<label for="skills">
-				Skills <input type="text" name="skills" id="skills" value="{{#astro.skills}}{{.}},{{/astro.skills}}"> 
-			</label>			
+				Skills <input type="text" name="skills" id="skills" value="{{#astro.skills}}{{.}}{{/astro.skills}}"> 
+			</label>
+			
+			<label for="missions">
+				Places Last Seen <input type="text" name="missions" id="missions" value="{{#astro.missions}}{{.}}{{/astro.missions}}"> 
+			</label>
 
 			<label for="photoUrl">
 				Photo URL <input type="text" name="photoUrl" id="photoUrl" value="{{astro.photo}}"> 
@@ -35,7 +39,7 @@
 			</label>
 
 			
-			<input type="submit" value="Edit Astronaut">
+			<input type="submit" value="Save Ghost">
 
 		</form>
 
