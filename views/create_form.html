@@ -1,61 +1,83 @@
 <div class="row">
-	<div class="span8">
+	<div class="span6">
 		<h3>{{page_title}}</h3>
 
-		<form method="POST" action="/create">
-
-			<label for="thenamebox">
-				{{#errors.name}}
-				<span class="help-block alert alert-error">{{type}}</span>
-				{{/errors.name}}
-
-				Name <input type="text" name="name" class="required" id="thenamebox" value="{{astro.name}}" required>
-				
-			</label>
-
-
-			<label for="birthdate">
-				{{#errors.birthdate}}
-				<span class="help-block alert alert-error">{{type}}</span>
-				{{/errors.birthdate}}
-
-				Date of Sighting <input type="date" name="birthdate" id="birthdate" value="{{astro.birthdate}}"> 
-			</label>
-
-			<label for="skills">
-				{{#errors.skills}}
-				<span class="help-block alert alert-error">{{type}}</span>
-				{{/errors.skills}}
-
-				Behaviors <input type="text" name="skills" id="skills" value="{{astro.skills}}" required> 
-			</label>			
-
-			<label for="photoUrl">
-				{{#errors.photo}}
-				<span class="help-block alert alert-error">{{type}}</span>
-				{{/errors.photo}}
-
-				Photo URL <input type="text" name="photoUrl" id="photoUrl" value="{{astro.photoUrl}}"> 
-			</label>
-
-
-			<label for="source_name">
-				Source name <input type="text" name="source_name" id="source_name" value="{{astro.source_name}}"> 
-			</label>
+		<form method="POST" action="/create" class="form-horizontal">
 			
-			<label for="source_url">
-				Source URL <input type="text" name="source_url" id="source_url" value="{{astro.source_url}}"> 
-			</label>
-
-			<label for="walkedonmoon">
-				Have you been slimed? <input type="checkbox" name="walkedonmoon" id="walkedonmoon" {{#astro.walkedonmoon}}checked{{/astro.walkedonmoon}}> 
-			</label>
-
+			<div class = "control-group">
+				<label for="thenamebox" class="control-label">Name</label>
+							{{#errors.name}}
+								<span class="help-block alert alert-error">{{type}}</span>
+							{{/errors.name}}
+				<div class = "controls">
+				<input type="text" name="name" class="required" id="thenamebox" value="{{astro.name}}" required>
+				</div>
+			</div>
 			
-			<input type="submit" value="Add Ghost">
+			<div class = "control-group">
+				<label for="birthdate" class="control-label">Date of Sighting</label>
+							{{#errors.birthdate}}
+								<span class="help-block alert alert-error">{{type}}</span>
+							{{/errors.birthdate}}
+				<div class = "controls">
+				<input type="date" name="birthdate" id="birthdate" value="{{astro.birthdate}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="skills" class="control-label">Behaviors</label>
+							{{#errors.skills}}
+								<span class="help-block alert alert-error">{{type}}</span>
+							{{/errors.skills}}
+				<div class = "controls">
+			 	<input type="text" name="skills" id="skills" value="{{astro.skills}}" required> 
+				</div>
+			</div>		
 
+			<div class = "control-group">
+				<label for="photoUrl" class="control-label">Photo URL</label>
+						{{#errors.photo}}
+							<span class="help-block alert alert-error">{{type}}</span>
+						{{/errors.photo}}
+				<div class="controls">
+			 	<input type="text" name="photoUrl" id="photoUrl" value="{{astro.photoUrl}}"> 
+				</div>
+			</div>
+
+			<div class = "control-group">
+				<label for="source_name" class="control-label">Source Name</label>
+				<div class="controls">
+				<input type="text" name="source_name" id="source_name" value="{{astro.source_name}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="source_url" class="control-label">Source URL</label>
+				<div class="controls">
+				<input type="text" name="source_url" id="source_url" value="{{astro.source_url}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="walkedonmoon" class="control-label">Have you been slimed?</label>
+				<div class="controls">
+				<input type="checkbox" name="walkedonmoon" id="walkedonmoon" {{#astro.walkedonmoon}}checked{{/astro.walkedonmoon}}> 
+				</div>
+			</div>
+
+			<input type="submit" value="Add Ghost" class="btn btn-primary">
+			<a href="/"><button type="button" class="btn btn-danger">Cancel</button></a>
+			
+			
 		</form>
 	</div>
+	
+	
+	
+</div>
+
+<div class="span4 pull-right">
+		<div><img src="http://i.imgur.com/QZ0JgPv.png"/></div>
 </div>
 
 

@@ -29,7 +29,8 @@
 			{{#formatDate}}{{astro.birthdate}}{{/formatDate}}
 			<br>
 
-			Behaviors: {{astro.skills}}<br>
+			Behaviors: {{astro.skills}}
+			<br>
 			
 			Places Last Seen:
 			<ul>
@@ -54,10 +55,10 @@
 		{{/astro.walkedOnMoon}}
 
 		<br><br>
-		<a href="/astronauts/{{astro.slug}}/edit" class="btn btn-info">edit</a>
+		<a href="/astronauts/{{astro.slug}}/edit" class="btn btn-primary">edit</a>
 		
 		<hr>
-		<h3>Ship Logs</h3>
+		<h3>Ghost Logs</h3>
 		{{#astro.shiplogs}}
 			<i>{{date}}</i><br>
 			<p>{{content}}</p>
@@ -65,8 +66,8 @@
 		{{/astro.shiplogs}}
 
 		{{^astro.shiplogs}}No logs{{/astro.shiplogs}}
-
-		<a href="#myModal" role="button" class="btn" data-toggle="modal">Add Log</a>
+		<br>
+		<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Add Log</a>
 
 		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
@@ -76,7 +77,7 @@
 		  	</div>
 		  	<div class="modal-body">
 				<form method="POST" action="/astronauts/{{astro.slug}}/addshiplog" id="shiplogform">
-					<legend>Add Ship's Log</legend>
+					<legend>Add Ghost's Log</legend>
 					<div>
 						<label for="logcontent">Log</label>
 						<textarea id="logcontent" name="logcontent"></textarea>
@@ -100,7 +101,7 @@
 	</div>
 
 	<!-- third column w/ listings -->
-	<div class="span2">
+	<div class="span4">
 		<h3>All Ghosts</h3>
 		<hr>
 		{{#astros}}
@@ -110,7 +111,7 @@
 		{{/astros}}
 
 		<br>
-		<a class="btn" href="/create">Add new ghost</a>
+		<a class="btn btn-primary" href="/create">Add new ghost</a>
 	</div>
 
 </div>

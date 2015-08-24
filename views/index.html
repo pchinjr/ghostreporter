@@ -1,30 +1,29 @@
 <div class="row">
 
-	<div class="span6">
-
-		<h1>Let's Bust Some Ghosts!</h1>
+	<div class="jumbotron">
 		
+		<h1 class>Let's Bust Some Ghosts!</h1>
+		
+		<p class="lead"> You can report Ghost Sightings and add them to our databse.<br>If there's a spook or spector that is bothering you, let us know and we can track it, trap it, and contain it for good.</p>
 		<img src="http://cdn2.crushable.com/wp-content/uploads/2014/10/Ghostbusters-GIF.gif" alt="busting some ghosts">
 		
-		<hr>
-
+		
 		<h3>{{pageTitle}}</h3>
-
+		<p> Click a Ghost's name to find out more detail on the ugly little spud.</p>
 		<!-- astronaut loop -->
 		{{#astros}}
-		
-		<li><a href="/astronauts/{{slug}}">{{name}}</a> - {{source.name}}</li>
-		
+		<ul class="unstyled">
+		<li><i class="icon-user"></i><a href="/astronauts/{{slug}}"> {{name}}</a> - {{source.name}}</li>
+		</ul>
 		{{/astros}}
-		<p>
-			<a class="btn" href="/create">Create a new ghost</a>
-		</p>
-		<hr>
 		
-
+		<p>
+			<a class="btn btn-primary" href="/create">Report A New Ghost</a>
+		</p>
 		<p>
 			<a href="/data/astronauts">Ghost JSON</a>
 		</p>
+		<img src="http://i.imgur.com/lcfC0Qj.png" class="pull-right"/>
 	</div>
 
 
