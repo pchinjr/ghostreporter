@@ -59,12 +59,12 @@ exports.data_all = function(req, res) {
 			status : 'OK',
 			astros : allAstros
 			
-		}
+		};
 
 		res.json(jsonData);
 	});
 
-}
+};
 
 /*
 	GET /astronauts/:astro_id
@@ -75,6 +75,8 @@ exports.detail = function(req, res) {
 
 	//get the requested astronaut by the param on the url :astro_id
 	var astro_id = req.params.astro_id;
+	
+	
 
 	// query the database for astronaut
 	var astroQuery = astronautModel.findOne({slug:astro_id});
@@ -109,7 +111,7 @@ exports.detail = function(req, res) {
 				astros : allAstros,
 				pageTitle : currentAstronaut.name
 			}
-
+			
 			// render and return the template
 			res.render('detail.html', templateData);
 
@@ -188,8 +190,8 @@ exports.createAstro = function(req, res) {
 			name : req.body.source_name,
 			url : req.body.source_url
 		},
-		slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_')
-
+		slug : req.body.name.toLowerCase().replace(/[^\w ]+/g,'').replace(/ +/g,'_'),
+		
 	});
 
 	// you can also add properties with the . (dot) notation
@@ -199,6 +201,7 @@ exports.createAstro = function(req, res) {
 
 	newAstro.skills = req.body.skills.split(",");
 	newAstro.missions = req.body.missions.split(",");
+	
 
 	// walked on moon checkbox
 	if (req.body.walkedonmoon) {
@@ -285,7 +288,7 @@ exports.updateAstro = function(req, res) {
 		birthdate : moment(req.body.birthdate).toDate(),
 		skills : req.body.skills.split(","),
 		missions : req.body.missions.split(","),
-
+		
 		walkedOnMoon : (req.body.walkedonmoon) ? true : false
 		
 	}
