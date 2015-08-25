@@ -2,44 +2,66 @@
 	<div class="span8">
 		<h3>{{page_title}}</h3>
 
-		<form method="POST" action="/astronauts/{{astro.slug}}/edit">
-
-			<label for="thenamebox">
-				Name <input type="text" name="name" id="thenamebox" value="{{astro.name}}" required> 
-			</label>
-
-
-			<label for="birthdate">
-				Birthdate <input type="date" name="birthdate" id="birthdate" value="{{astro.birthdateForm}}"> 
-			</label>
-
-			<label for="skills">
-				Skills <input type="text" name="skills" id="skills" value="{{#astro.skills}}{{.}}{{/astro.skills}}"> 
-			</label>
+		<form method="POST" action="/astronauts/{{astro.slug}}/edit" class="form-horizontal">
 			
-			<label for="missions">
-				Places Last Seen <input type="text" name="missions" id="missions" value="{{#astro.missions}}{{.}}{{/astro.missions}}"> 
-			</label>
-
-			<label for="photoUrl">
-				Photo URL <input type="text" name="photoUrl" id="photoUrl" value="{{astro.photo}}"> 
-			</label>
-
-
-			<label for="source_name">
-				Source name <input type="text" name="source_name" id="source_name"value="{{astro.source.name}}"> 
-			</label>
+			<div class = "control-group">
+				<label for="thenamebox" class="control-label">Name</label>
+				<div class = "controls">
+				<input type="text" name="name" id="thenamebox" value="{{astro.name}}" required> 
+				</div>
+			</div>
 			
-			<label for="source_url">
-				Source URL <input type="text" name="source_url" id="source_url" value="{{astro.source.url}}"> 
-			</label>
-
-			<label for="walkedonmoon">
-				Have been slimed? <input type="checkbox" name="walkedonmoon" id="walkedonmoon" {{#astro.walkedOnMoon}}checked=checked{{/astro.walkedOnMoon}}> 
-			</label>
-
+			<div class = "control-group">
+				<label for="birthdate" class="control-label">Date of Sighting</label>
+				<div class = "controls">
+				<input type="date" name="birthdate" id="birthdate" value="{{astro.birthdateForm}}"> 
+				</div>
+			</div>
 			
-			<input type="submit" value="Save Ghost">
+			<div class = "control-group">
+				<label for="skills" class="control-label">Behaviors</label>
+				<div class = "controls">
+			 	<input type="text" name="skills" id="skills" value="{{#astro.skills}}{{.}}{{/astro.skills}}"> 
+				</div>
+			</div>	
+
+			<div class = "control-group">
+				<label for="missions" class="control-label">Places Last Seen</label>
+				<div class="controls">
+				<input type="text" name="missions" id="missions" value="{{#astro.missions}}{{.}}{{/astro.missions}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="photoUrl" class="control-label">Photo URL</label>
+				<div class="controls">
+			 	<input type="text" name="photoUrl" id="photoUrl" value="{{astro.photo}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="source_name" class="control-label">Source Name</label>
+				<div class="controls">
+				<input type="text" name="source_name" id="source_name" value="{{astro.source.name}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="source_url" class="control-label">Source URL</label>
+				<div class="controls">
+				<input type="text" name="source_url" id="source_url" value="{{astro.source.url}}"> 
+				</div>
+			</div>
+			
+			<div class = "control-group">
+				<label for="walkedonmoon" class="control-label">Has been slimed?</label>
+				<div class="controls">
+				<input type="checkbox" name="walkedonmoon" id="walkedonmoon" {{#astro.walkedOnMoon}}checked=checked{{/astro.walkedOnMoon}}> 
+				</div>
+			</div>
+
+			<input type="submit" value="Save Ghost" class="btn btn-primary">
+			<a href="/"><button type="button" class="btn btn-danger">Cancel</button></a>
 
 		</form>
 
