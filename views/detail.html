@@ -3,7 +3,7 @@
 	
 	<!-- first column w/ image-->
 	<div class="span4">
-		<img src="{{astro.photo}}" alt="photo of ghost {{astro.name}}" class="img-polaroid" width="320px"><br>
+		<img src="{{astro.photo}}" alt="photo of ghost {{astro.name}}" class="img-polaroid" width="200px"><br>
 		
 		<p>
 			source: 
@@ -28,13 +28,16 @@
 		<div>
 			Sighting Date:
 			
-			{{astro.birthdate}}
+			{{astro.formattedBirthdate}}
 			
 			<br>
 
-			Behaviors: {{astro.skills}}
-			<br>
-			
+			Behaviors:
+			<ul>
+				{{#astro.skills}}
+				<li>{{.}}</li>
+				{{/astro.skills}}
+			</ul>
 			Places Last Seen:
 			<ul>
 				{{#astro.missions}}

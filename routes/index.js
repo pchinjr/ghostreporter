@@ -97,7 +97,7 @@ exports.detail = function(req, res) {
 		currentAstronaut.formattedBirthdate = function() {
 			// formatting a JS date with moment
 			// http://momentjs.com/docs/#/displaying/format/
-            return moment(this.birthdate).format("dddd, MMMM Do YYYY");
+            return moment(this.birthdate).format("MMMM Do YYYY");
         };
 		
 		//query for all astronauts, return only name and slug
@@ -146,7 +146,7 @@ exports.data_detail = function(req, res) {
 		currentAstronaut.formattedBirthdate = function() {
 			// formatting a JS date with moment
 			// http://momentjs.com/docs/#/displaying/format/
-            return moment(this.birthdate).format("dddd, MMMM Dd YYYY");
+            return moment(this.birthdate).format("MMMM Do YYYY");
         };
 		
 		//prepare JSON data for response
@@ -200,7 +200,7 @@ exports.createAstro = function(req, res) {
 	}
 
 	newAstro.skills = req.body.skills.split(",");
-	newAstro.missions = req.body.missions.split(",");
+	newAstro.missions = req.body.missions;
 	
 
 	// walked on moon checkbox
@@ -281,10 +281,10 @@ exports.updateAstro = function(req, res) {
 	var updatedData = {
 		name : req.body.name,
 		photo : req.body.photoUrl,
-		source : {
+		/*source : {
 			name : req.body.source_name,
 			url : req.body.source_url
-		},
+		},*/
 		birthdate : moment(req.body.birthdate).toDate(),
 		skills : req.body.skills.split(","),
 		missions : req.body.missions.split(","),
