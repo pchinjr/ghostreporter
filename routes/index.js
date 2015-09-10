@@ -14,9 +14,14 @@ var astronautModel = require("../models/astronaut.js"); //db model
 /*
 	GET /
 */
-exports.index = function(req, res) {
+/*exports.index = function(req, res) {
 	
 	console.log("main page requested");
+	
+	astronautModel.findOne({}, {}, { sort: { 'birthdate' : -1 } }, function(err, post) {
+  	console.log( post.name + " is the most recent sighting" );
+  	});
+  
 
 	// query for all astronauts
 	// .find will accept 3 arguments
@@ -42,9 +47,38 @@ exports.index = function(req, res) {
 		res.render('index.html', templateData);
 
 	});
+}*/
+
+exports.index = function(req, res) {
+    
+    console.log("main page requested");
+    
+    astronautModel.findOne({}, {}, { sort: { 'birthdate' : -1 } }, function(err, post) {
+     	console.log( post.name + " is the most recent sighting" );
+
+      // next .. 
+
+        	astronautModel.find({}, 'name slug source', function(err, allAstros){
+
+        		if (err) {
+            		res.send("Unable to query database for astronauts").status(500);
+        		};
+
+        		console.log("retrieved " + allAstros.length + " astronauts from database");
+
+        		//build and render template
+        		var templateData = {
+            		astros : allAstros,
+            		pageTitle : "Ghosts Reported (" + allAstros.length + ")"
+        		}   
+              	// call this template insie second mongoose query call so it calls render after being done
+              	res.render('index.html', {'name': post.name, 'profile': templateData});
+    });
+
+    });
 
 }
-
+	
 exports.data_all = function(req, res) {
 
 	astroQuery = astronautModel.find({}); // query for all astronauts
@@ -287,10 +321,8 @@ exports.updateAstro = function(req, res) {
 		},*/
 		birthdate : moment(req.body.birthdate).toDate(),
 		skills : req.body.skills.split(","),
-		missions : req.body.missions.split(","),
-		
+		missions : req.body.missions,
 		walkedOnMoon : (req.body.walkedonmoon) ? true : false
-		
 	}
 
 

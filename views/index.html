@@ -6,54 +6,25 @@
 		
 		<p class="lead"> You can report Ghost Sightings and add them to our databse.<br>If there's a spook or spector that is bothering you, let us know and we can track it, trap it, and contain it for good.</p>
 		<img src="http://cdn2.crushable.com/wp-content/uploads/2014/10/Ghostbusters-GIF.gif" alt="busting some ghosts">
+		<h3>The Latest Ghost Reported is <em>{{name}}</em></h3>
 		
-		
-		<h3>{{pageTitle}}</h3>
+		<h3>{{profile.pageTitle}}</h3>
 		<p> Click a Ghost's name to find out more detail on the ugly little spud.</p>
 		<!-- astronaut loop -->
-		{{#astros}}
+		{{#profile.astros}}
 		<ul class="unstyled">
 		<li><i class="icon-user"></i><a href="/astronauts/{{slug}}"> {{name}}</a></li>
 		</ul>
-		{{/astros}}
+		{{/profile.astros}}
 		
 		<p>
 			<a class="btn btn-primary" href="/create">Report A New Ghost</a>
 		</p>
-		
-		
 		
 		<p>
 			<a href="/data/astronauts">Ghost JSON</a>
 		</p>
 		<img src="http://i.imgur.com/lcfC0Qj.png" class="pull-right"/>
 	</div>
-
-
-
-
-
-
-	<!-- right column -->
-	<!--<div class="span6">
-		<h3>The Demo</h3>
-		<li>
-			<a class="btn" href="https://github.com/johnschimmel/Heroku-ExpressJS-Boilerplate">Github Repo</a>
-		</li>
-		<li>
-			<a href="/remote_api_demo">Remote API demo</a>
-		</li>
-		<br>
-	<b>Uses</b>
-		<li><a href="http://expressjs.com">ExpressJS</a> framework</li>
-		<li><a href="https://github.com/vol4ok/hogan-express">Hogan-Express</a> Template Engine</li>
-		<li>MongoLabs Heroku Addon</li>
-		<li><a href="http://mongoosejs.com/index.html">MongooseJS</a></li>
-		<li><a href="http://momentjs.com/">Moment.js</a></li>
-		<li><a href="https://github.com/mikeal/request">Request</a></li>
-
-
-	</div>-->
-
 
 </div>

@@ -1,27 +1,7 @@
 
 <div class="row">
 	
-	<!-- first column w/ image-->
-	<div class="span4">
-		<img src="{{astro.photo}}" alt="photo of ghost {{astro.name}}" class="img-polaroid" width="200px"><br>
-		
-		<p>
-			source: 
-			<a href="{{astro.source.url}}" class="small">
-				{{astro.source.name}}
-			</a>
-
-			<br>
-
-			json:
-			<a href="/data/astronauts/{{astro.slug}}">/data/astronauts/{{astro.slug}}</a>
-		</p>
-
-
-	</div>
-	
-	<!-- second column w/ details-->
-	<div class="span4">
+	<div class="span6">
 		<h2>{{astro.name}}</h2>
 		<hr>
 
@@ -104,10 +84,6 @@
 			</div>
 
 		</div>
-	</div>
-
-	<!-- third column w/ listings -->
-	<div class="span4">
 		<h3>All Ghosts</h3>
 		<hr>
 		{{#astros}}
@@ -117,12 +93,25 @@
 		{{/astros}}
 
 		<br>
-		<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDgEGAL8afdCZp4Ubnr24yJlo9LqzCb9QI
-		    &q={{#astro.missions}}{{astro.missions}}{{/astro.missions}}" allowfullscreen>
-		</iframe>
+	
 		<br>
 		<a class="btn btn-primary" href="/create">Add new ghost</a>
+	</div>
+	
+	<div class="span6">
+		{{#astro.photo}}
+				<img src="{{astro.photo}}" alt="photo of ghost {{astro.name}}" class="img-polaroid" width="400px">
+		{{/astro.photo}}
 		
+		{{^astro.photo}}
+				<img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" class="img-polaroid" width="200px"><br>
+				No Photo Found on Record
+		{{/astro.photo}}
+		<br>
+		<br>
+		
+		<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDgEGAL8afdCZp4Ubnr24yJlo9LqzCb9QI&q={{astro.missions}}" allowfullscreen>
+		</iframe>
 		
 	</div>
 
