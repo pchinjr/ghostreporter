@@ -27,7 +27,7 @@ app.configure(function(){
   app.set('layout','layout');
   app.engine('html', require('hogan-express')); // https://github.com/vol4ok/hogan-express
 
-  app.use(express.favicon());
+  /*app.use(express.favicon());*/
   app.use(express.bodyParser());
   app.use(express.methodOverride());
 
@@ -80,6 +80,9 @@ app.post('/create',routes.createAstro); //form POST submits here
 
 // display a single astronaut
 app.get('/astronauts/:astro_id', routes.detail);
+
+//display all ghosts
+app.get('/all',routes.showAll);
 
 // edit astronaut
 app.get('/astronauts/:astro_id/edit', routes.editAstroForm); //GET display form

@@ -54,8 +54,7 @@ exports.index = function(req, res) {
     console.log("main page requested");
     
     astronautModel.findOne({}, {}, { sort: { 'birthdate' : -1 } }, function(err, post) {
-     	console.log( post.name + " is the most recent sighting" );
-
+     	
       // next .. 
 
         	astronautModel.find({}, 'name slug source', function(err, allAstros){
@@ -96,6 +95,27 @@ exports.data_all = function(req, res) {
 		};
 
 		res.json(jsonData);
+	});
+
+};
+
+exports.showAll = function(req, res) {
+
+	astroQuery = astronautModel.find({}); // query for all astronauts
+	astroQuery.sort('-birthdate');
+	
+	// display only 3 fields from astronaut data
+	astroQuery.select('name photo birthdate skills');
+	
+	astroQuery.exec(function(err, allAstros){
+		// prepare data for JSON
+		var jsonData = {
+			status : 'OK',
+			astros : allAstros
+			
+		};
+
+		res.render('allghosts.html', jsonData);
 	});
 
 };
