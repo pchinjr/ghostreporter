@@ -1,5 +1,5 @@
 <div class="container">
-      <div class="row">
+    <div class="row-fluid">
         
           <div class="hero-unit">
             <h1>Ghost Sightings Database</h1>
@@ -7,27 +7,45 @@
             <p><a href="/create" class="btn btn-primary btn-large">Report Your Sighting &raquo;</a></p>
           </div>
           
-          <div class="span4">
-          {{#astros}}
+          <ul class="thumbnails">
+            {{#astros}}
+            <li class="span4">
+              <div class="thumbnail">
+                {{#photo}}
+				        <img src="{{photo}}" alt="photo of ghost {{name}}">
+		            {{/photo}}
+		            {{^photo}}
+				        <img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg">
+		            {{/photo}}
+                <a href="/astronauts/{{slug}}">
+                  <h3>{{name}}</h3>
+                </a>
+                <p>
+                  "{{skills}}"
+                </p>
+                <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
+              </div>
+            </li>
+            {{/astros}}
+          </ul>
           
-            <h2><a href="/astronauts/{{slug}}">{{name}}</a></h2>
-               {{#photo}}
-				<img src="{{photo}}" alt="photo of ghost {{name}}" class="img-polaroid" width="150px">
-		        {{/photo}}
-		
-		        {{^photo}}
-				<img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" class="img-polaroid" width="150px"><br>
-				No Photo Found on Record
-		        {{/photo}}
-              <p><strong>{{skills}}</strong></p>
-              <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
-            
-          <!--/row-->
+          
+          <!--<div>
+          {{#astros}}
+          <h2><a href="/astronauts/{{slug}}">{{name}}</a></h2>
+          {{#photo}}
+				  <img src="{{photo}}" alt="photo of ghost {{name}}" class="img-polaroid" width="150px">
+		      {{/photo}}
+		      {{^photo}}
+				  <img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" class="img-polaroid" width="150px"><br>
+				  No Photo Found on Record
+		      {{/photo}}
+          <p><strong>{{skills}}</strong></p>
+          <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
           {{/astros}}
-            </div>
-        </div><!--/span-->
-      </div><!--/row-->
+          </div>-->
+          
+    </div>
+</div>
 
-      <hr>
 
-</div><!--/.fluid-container-->
