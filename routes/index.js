@@ -71,7 +71,7 @@ exports.index = function(req, res) {
             		pageTitle : "Ghosts Reported (" + allAstros.length + ")"
         		}   
               	// call this template insie second mongoose query call so it calls render after being done
-              	res.render('index.html', {'name': post.name, 'profile': templateData});
+              	res.render('index.html', {'name': post.name, 'profile': templateData, 'slug':post.slug});
     });
 
     });
