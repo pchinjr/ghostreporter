@@ -1,51 +1,33 @@
-<!--<div class="row">
-    {{#astros}}
-		<div class="span3">
-		    
-		    {{#photo}}
-				<img src="{{photo}}" alt="photo of ghost {{name}}" class="img-polaroid" width="150px">
-		    {{/photo}}
-		
-		    {{^photo}}
-				<img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" class="img-polaroid" width="150px"><br>
-				No Photo Found on Record
-		    {{/photo}}
-		 </div>
-		 
-		 <div class="span6">
-		    <a href="/astronauts/{{slug}}">{{name}}</a>
-		    {{skills}}
-		</div>
-	{{/astros}}
-</div>-->
-
-<div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span">
+<div class="container">
+      <div class="row">
+        
           <div class="hero-unit">
             <h1>Ghost Sightings Database</h1>
             <p>This is the current list of ghosts that have been reported to us</p>
             <p><a href="/create" class="btn btn-primary btn-large">Report Your Sighting &raquo;</a></p>
           </div>
+          
+          <div class="span4">
           {{#astros}}
-          <div class="row">
+          
             <h2><a href="/astronauts/{{slug}}">{{name}}</a></h2>
                {{#photo}}
 				<img src="{{photo}}" alt="photo of ghost {{name}}" class="img-polaroid" width="150px">
-		    {{/photo}}
+		        {{/photo}}
 		
-		    {{^photo}}
+		        {{^photo}}
 				<img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" class="img-polaroid" width="150px"><br>
 				No Photo Found on Record
-		    {{/photo}}
-              <p>{{skills}}</p>
+		        {{/photo}}
+              <p><strong>{{skills}}</strong></p>
               <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
             
-          </div><!--/row-->
+          <!--/row-->
           {{/astros}}
+            </div>
         </div><!--/span-->
       </div><!--/row-->
 
       <hr>
 
-    </div><!--/.fluid-container-->
+</div><!--/.fluid-container-->

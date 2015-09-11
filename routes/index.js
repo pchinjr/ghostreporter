@@ -105,7 +105,7 @@ exports.showAll = function(req, res) {
 	astroQuery.sort('-birthdate');
 	
 	// display only 3 fields from astronaut data
-	astroQuery.select('name photo birthdate skills');
+	astroQuery.select('name photo birthdate skills slug');
 	
 	astroQuery.exec(function(err, allAstros){
 		// prepare data for JSON
