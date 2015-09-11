@@ -1,7 +1,5 @@
 <div class="container">
-    <div class="row-fluid">
-        
-          <div class="hero-unit">
+        <div class="hero-unit">
             <h1>Ghost Sightings Database</h1>
             <p>This is the current list of ghosts that have been reported to us</p>
             <p><a href="/create" class="btn btn-primary btn-large">Report Your Sighting &raquo;</a></p>
@@ -9,43 +7,25 @@
           
           <ul class="thumbnails">
             {{#astros}}
-            <li class="span4">
+            <li class="span3">
               <div class="thumbnail">
                 {{#photo}}
-				        <img src="{{photo}}" alt="photo of ghost {{name}}">
+				        <img src="{{photo}}" alt="photo of ghost {{name}}" width="300">
 		            {{/photo}}
 		            {{^photo}}
-				        <img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg">
+				        <img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" width="300">
 		            {{/photo}}
-                <a href="/astronauts/{{slug}}">
-                  <h3>{{name}}</h3>
-                </a>
-                <p>
-                  "{{skills}}"
-                </p>
-                <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
+                  <div class="caption">  
+                    <h3>{{name}}</h3>
+                    <p>"{{skills}}"</p>
+                    <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
+                  </div>  
               </div>
             </li>
             {{/astros}}
           </ul>
           
-          
-          <!--<div>
-          {{#astros}}
-          <h2><a href="/astronauts/{{slug}}">{{name}}</a></h2>
-          {{#photo}}
-				  <img src="{{photo}}" alt="photo of ghost {{name}}" class="img-polaroid" width="150px">
-		      {{/photo}}
-		      {{^photo}}
-				  <img src="http://image.rakuten.co.jp/harry/cabinet/hst-3/2014hw-36.jpg" class="img-polaroid" width="150px"><br>
-				  No Photo Found on Record
-		      {{/photo}}
-          <p><strong>{{skills}}</strong></p>
-          <p><a class="btn btn-primary" href="/astronauts/{{slug}}">View details &raquo;</a></p>
-          {{/astros}}
-          </div>-->
-          
-    </div>
+    
 </div>
 
 
