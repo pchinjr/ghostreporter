@@ -14,40 +14,6 @@ var astronautModel = require("../models/astronaut.js"); //db model
 /*
 	GET /
 */
-/*exports.index = function(req, res) {
-	
-	console.log("main page requested");
-	
-	astronautModel.findOne({}, {}, { sort: { 'birthdate' : -1 } }, function(err, post) {
-  	console.log( post.name + " is the most recent sighting" );
-  	});
-  
-
-	// query for all astronauts
-	// .find will accept 3 arguments
-	// 1) an object for filtering {} (empty here)
-	// 2) a string of properties to be return, 'name slug source' will return only the name, slug and source returned astronauts
-	// 3) callback function with (err, results)
-	//    err will include any error that occurred
-	//	  allAstros is our resulting array of astronauts
-	astronautModel.find({}, 'name slug source', function(err, allAstros){
-
-		if (err) {
-			res.send("Unable to query database for astronauts").status(500);
-		};
-
-		console.log("retrieved " + allAstros.length + " astronauts from database");
-
-		//build and render template
-		var templateData = {
-			astros : allAstros,
-			pageTitle : "Ghosts Reported (" + allAstros.length + ")"
-		}
-
-		res.render('index.html', templateData);
-
-	});
-}*/
 
 exports.index = function(req, res) {
     
